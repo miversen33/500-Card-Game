@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        printShit()
         hello()
         Sample().checkMe()
         setContentView(R.layout.activity_main)
