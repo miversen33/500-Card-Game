@@ -1,3 +1,5 @@
+package Cards
+
 enum class Suit(val suit : String) {
     HEARTS("Hearts"), CLUBS("Clubs"), SPADES("Spades"), DIAMONDS("Diamonds");
 

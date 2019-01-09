@@ -10,10 +10,6 @@ expect object Platform {
 
 fun hello(): String = "Hello from ${Platform.name}"
 
-fun printShit() {
-    println("Fuckery")
-}
-
 class Proxy {
     fun proxyHello() = hello()
 }

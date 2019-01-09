@@ -1,3 +1,5 @@
+package Cards
+
 enum class Rank(val numericValue : Int, val isFaceCard : Boolean = false){
     FOUR(4),
     FIVE(5),
@@ -13,11 +15,7 @@ enum class Rank(val numericValue : Int, val isFaceCard : Boolean = false){
     //    Not sure if this should be 14 or 0
     JOKER(16);
 
-    fun isFaceCard() : Boolean{
-        return this.isFaceCard
-    }
-
     fun getRank() : Int {
-        return this.numericValue;
+        return this.numericValue
     }
 }

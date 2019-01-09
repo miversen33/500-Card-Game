@@ -1,14 +1,12 @@
+package Cards
+
 class Card(val suit : Suit, val rank : Rank){
 
-    fun getSuit() : Suit{
-        return suit
-    }
-
-    fun getRank() : Rank{
-        return rank;
-    }
-
     fun getReadableCardInfo() : String{
-        return getSuit().getReadableSuit()
+        return "(${suit.getReadableSuit()}"+" | "+"${rank.getRank()})"
+    }
+
+    override fun toString(): String {
+        return getReadableCardInfo()
     }
 }
