@@ -1,6 +1,8 @@
 package Cards
 
 enum class Rank(val numericValue : Int, val isFaceCard : Boolean = false){
+    TWO(2),
+    THREE(3),
     FOUR(4),
     FIVE(5),
     SIX(6),
@@ -11,8 +13,8 @@ enum class Rank(val numericValue : Int, val isFaceCard : Boolean = false){
     JACK(11, true),
     QUEEN(12, true),
     KING(13, true),
+//    Should probably figure out how to dictate Ace as High or Low
     ACE(14),
-    //    Not sure if this should be 14 or 0
     JOKER(16);
 
     fun getRank() : Int {

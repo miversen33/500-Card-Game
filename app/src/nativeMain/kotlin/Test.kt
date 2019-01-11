@@ -11,10 +11,12 @@ fun main(args : Array<String>){
     val cardDA = Card(Suit.DIAMONDS, Rank.ACE)
 
     val deck : Deck = Deck(mutableListOf(cardCA, cardSA, cardHA, cardDA))
-    deck.shuffleDeck()
-    val card1 = deck.drawCard()
-    val card2 = deck.drawCard()
-    val card3 = deck.drawCard()
-    val card4 = deck.drawCard()
+    deck.unlock()
+    deck.shuffle()
+    val card1 = deck.draw()
+    val card2 = deck.draw()
+    val card3 = deck.draw()
+    val card4 = deck.draw()
+    deck.lock()
     var i : Int = 0
 }
