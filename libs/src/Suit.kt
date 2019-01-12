@@ -1,7 +1,13 @@
-package Cards
+package pro.bladebeat.cardLibs.cards
 
 enum class Suit(val suit : String) {
     HEARTS("Hearts"), CLUBS("Clubs"), SPADES("Spades"), DIAMONDS("Diamonds");
+
+    companion object {
+        fun getAllSuits() : List<Suit>{
+            return listOf(HEARTS, CLUBS, SPADES, DIAMONDS)
+        }
+    }
 
     fun isHearts() : Boolean{
         return this === HEARTS

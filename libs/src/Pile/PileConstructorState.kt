@@ -1,4 +1,4 @@
-package Pile
+package pro.bladebeat.cardLibs.cards.pile
 
 enum class PileConstructorState {
     AddableState, RemovableState,
