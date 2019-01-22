@@ -15,13 +15,16 @@ enum class Rank(val numericValue : Int, val readableName : String = "", val isFa
     KING(13, "King", true),
 //    Should probably figure out how to dictate Ace as High or Low
     ACE(14, "Ace"),
-    JOKER(16, "Joker");
+    JOKER(15, "Joker");
 
 
 
     companion object {
         fun getAllRanks() : List<Rank>{
-            return listOf<Rank>(TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, JOKER)
+            return listOf(TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, JOKER)
+        }
+        fun getAllFaceCards() : List<Rank>{
+            return listOf(JACK, QUEEN, KING)
         }
     }
 

@@ -2,7 +2,7 @@ package pro.bladebeat.cardLibs.cards
 
 class Card(val suit : Suit, val rank : Rank){
 
-    fun getReadableCardInfo() : String{
+    private fun getReadableCardInfo() : String{
         return "($rank"+" | "+"${suit.getReadableSuit()})"
     }
 
@@ -10,7 +10,11 @@ class Card(val suit : Suit, val rank : Rank){
         return getReadableCardInfo()
     }
 
-    override fun equals(other: Any?): Boolean {
-        return other == this
+    fun isJoker() : Boolean{
+        return equals(Card(Suit.NULL, Rank.JOKER))
     }
+//
+//    override fun equals(other: Any?): Boolean {
+//        return other == this
+//    }
 }

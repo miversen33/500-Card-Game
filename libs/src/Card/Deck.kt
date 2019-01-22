@@ -20,10 +20,10 @@ class Deck(deck : MutableList<Card>) : Pile(PileConstructorState.AddableState, P
 
         private const val MAX_SHUFFLES =  7
 
-        fun Generate(type : DeckType, preShuffled : Boolean = true) : Deck{
+        fun Generate(type : GameType, preShuffled : Boolean = true) : Deck{
             var deck : Deck
             when(type){
-                DeckType.GameType500 -> deck = generate500Deck()
+                GameType.GameType500 -> deck = generate500Deck()
                 else -> deck = generateStandardDeck()
             }
             if(preShuffled){
@@ -46,7 +46,7 @@ class Deck(deck : MutableList<Card>) : Pile(PileConstructorState.AddableState, P
                     cards.add(Card(suit, rank))
                 }
             }
-            cards.add(Card(Suit.HEARTS, Rank.JOKER))
+            cards.add(Card(Suit.NULL, Rank.JOKER))
             cards.add(Card(Suit.DIAMONDS, Rank.JOKER))
 
             return cards
