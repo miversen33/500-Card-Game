@@ -15,7 +15,7 @@ class ConsoleUserPlayerLogic : IPlayerLogic {
     /**
      * @hand is not used
      */
-    override fun doBid(hand : Hand?, otherBids : Map<PlayerInfo, Bid>?): Bid {
+    override fun doBid(hand : Hand?, selfPlayer : PlayerInfo, otherBids : Map<PlayerInfo, Bid>): Bid {
         var bid = checkBidFormatting(getBid(false))
         while(bid === null) bid = checkBidFormatting(getBid(true))
         return bid

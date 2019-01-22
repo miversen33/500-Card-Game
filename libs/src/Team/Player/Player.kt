@@ -8,6 +8,15 @@ class Player(name : String, playerLogic : IPlayerLogic) : PlayerInfo{
     private var mName = name
     private val hand : Hand = Hand()
     private val mPlayerLogic : IPlayerLogic = playerLogic
+    private var mPartner : PlayerInfo? = null
+
+    fun setPartner(partner : PlayerInfo){
+        if(mPartner != null){
+            println("Cannot overwrite partner")
+        } else {
+            mPartner = partner
+        }
+    }
 
     fun giveNewHand(newHand : List<Card>){
         clearHand()
@@ -36,9 +45,14 @@ class Player(name : String, playerLogic : IPlayerLogic) : PlayerInfo{
         return mPlayerLogic.doTurn(hand)
     }
 
-    fun doBid(otherBids : Map<PlayerInfo, Bid>?) : Bid{
-        return mPlayerLogic.doBid(hand, otherBids)
+    fun doBid(otherBids : Map<PlayerInfo, Bid>) : Bid{
+        return mPlayerLogic.doBid(hand, this, otherBids)
     }
+
+    override fun getPartner(): PlayerInfo {
+        if(mPartner == null) throw UnsetPartnerException("Partner isn't set. Crashing now. Thank me later")
+        return mPartner as PlayerInfo
+    }
+
+    class UnsetPartnerException(message: String?) : RuntimeException(message)
 }
-
-

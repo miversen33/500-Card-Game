@@ -2,16 +2,20 @@ import pro.bladebeat.cardLibs.Deck
 import pro.bladebeat.cardLibs.GameType
 import pro.bladebeat.cardLibs.cards.pile.Pile
 import pro.bladebeat.cardLibs.cards.pile.PileConstructorState
+import pro.bladebeat.cardLibs.team.Bid
 import pro.bladebeat.cardLibs.team.Hand
 import pro.bladebeat.cardLibs.team.Player
+import pro.bladebeat.cardLibs.team.PlayerInfo
 import pro.bladebeat.cardLibs.team.playerLogic.AIPlayerLogic
 import pro.bladebeat.cardLibs.team.playerLogic.ConsoleUserPlayerLogic
+import pro.bladebeat.cardLibs.team.playerLogic.bid.BasicBidLogic
+import pro.bladebeat.cardLibs.team.playerLogic.turn.BasicTurnLogic
 
 fun main(args : Array<String>){
 
     val cardLimit = 40
 
-    val player1 = Player("Player 1", AIPlayerLogic())
+    val player1 = Player("Player 1", AIPlayerLogic(BasicBidLogic(), BasicTurnLogic()))
     val player2 = Player("Player 2", ConsoleUserPlayerLogic())
     val player3 = Player("Player 3", ConsoleUserPlayerLogic())
     val player4 = Player("Player 4", ConsoleUserPlayerLogic())
@@ -49,6 +53,8 @@ fun main(args : Array<String>){
     player3.giveNewHand(p3Hand.seeCards())
     player4.giveNewHand(p4Hand.seeCards())
 
+    val bidMap : Map<PlayerInfo, Bid> = HashMap()
+
     println(player1.seeHand())
-    println(player1.doBid(null))
+    println(player1.doBid(bidMap))
 }
